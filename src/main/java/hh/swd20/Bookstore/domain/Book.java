@@ -1,28 +1,48 @@
 package hh.swd20.Bookstore.domain;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+@Entity
 public class Book {
-
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private Long id; // new attribute id
 	private String title;
 	private String author;
 	private int year;
 	private String isbn;
 	private double price;
+
+	public Book() {
+		super();
+		this.id = null;
+		this.title = null;
+		this.author = null;
+		this.year = 0;
+		this.isbn = null;
+		this.price = 0.00;
+	}
 	
 	public Book(String title, String author, int year, String isbn, double price) {
+		super();
 		this.title = title;
 		this.author = author;
 		this.year = year;
 		this.isbn = isbn;
 		this.price = price;
 	}
-
-	public Book() {
+	
+	public Book(Long id, String title, String author, int year, String isbn, double price) {
 		super();
-		this.title = null;
-		this.author = null;
-		this.year = 0;
-		this.isbn = null;
-		this.price = 0.00;
+		this.id = id;
+		this.title = title;
+		this.author = author;
+		this.year = year;
+		this.isbn = isbn;
+		this.price = price;
 	}
 
 	public String getTitle() {
