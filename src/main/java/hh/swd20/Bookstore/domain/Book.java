@@ -16,6 +16,7 @@ public class Book {
 	private String isbn;
 	private double price;
 
+	
 	public Book() {
 		super();
 		this.id = null;
@@ -44,6 +45,10 @@ public class Book {
 		this.isbn = isbn;
 		this.price = price;
 	}
+	
+	public Long getId() {
+		return id;
+	}
 
 	public String getTitle() {
 		return title;
@@ -63,6 +68,10 @@ public class Book {
 
 	public double getPrice() {
 		return price;
+	}
+	
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public void setTitle(String title) {
