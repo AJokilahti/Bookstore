@@ -35,15 +35,24 @@ private BookRepository repository;
 		return "addbook";
 	}
 	
+	
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public String save(Book book){
 		repository.save(book);
 		return "redirect:booklist";
 	}
 	
+	//Edit Book
 	@RequestMapping(value="/delete/{id}", method = RequestMethod.GET)
 	public String deleteBook(@PathVariable("id") Long bookId, Model model) {
 		repository.deleteById(bookId);
 		return "redirect:../booklist";
+	}
+	
+	//Edit book
+	@RequestMapping(value = "/edit/{id}")
+	public String addBook(@PathVariable("id") Long bookId, Model model) {
+		model.addAttribute("book", repository.findById(bookId));
+		return "editbook";
 	}
 }
