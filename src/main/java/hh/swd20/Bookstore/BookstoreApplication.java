@@ -36,11 +36,18 @@ public class BookstoreApplication {
 	}
 	
 	@Bean
-	public CommandLineRunner bookdemo(BookRepository repository) {
+	public CommandLineRunner bookdemo(BookRepository repository, CategoryRepository categoryrepository) {
 		return(args) -> {
 			log.info("Save a couple of books");
-			repository.save(new Book("Hobitti", "J. R. R. Tolkien", 2020, "9789510468524", 20.45));
-			repository.save(new Book("Taivaallinen vastaanotto", "Jukka Viikilä", 2021, "9789511325642", 16.95));
+			Category category1 = new Category("Fantasy");
+			categoryrepository.save(category1);
+			Category category2 = new Category("Comic");
+			categoryrepository.save(category2);
+			Category category3 = new Category("Fiction");
+			categoryrepository.save(category3);
+			
+			repository.save(new Book("Hobitti", "J. R. R. Tolkien", 2020, "9789510468524", 20.45, category1 ));
+			repository.save(new Book("Taivaallinen vastaanotto", "Jukka Viikilä", 2021, "9789511325642", 16.95, category3));
 		
 			log.info("fetch all books");
 			for(Book book : repository.findAll()) {
