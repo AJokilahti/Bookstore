@@ -113,8 +113,13 @@ public class Book {
 
 	@Override
 	public String toString() {
+		if(this.category != null) {
 		return "Title: " + title + "\nAuthor: " + author + "\nYear: " + year + "\nISBN: " + isbn + "\nPrice: " + price
 				+ " €\nCategory: " + this.getCategory();
+		} else {
+		return	"Title: " + title + "\nAuthor: " + author + "\nYear: " + year + "\nISBN: " + isbn + "\nPrice: " + price
+				+ " €";
+		}
 	}
 	
 	

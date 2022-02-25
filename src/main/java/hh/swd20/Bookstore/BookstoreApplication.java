@@ -20,20 +20,7 @@ public class BookstoreApplication {
 		SpringApplication.run(BookstoreApplication.class, args);
 	}
 	
-	@Bean
-	public CommandLineRunner categorydemo(CategoryRepository repository) {
-		return(args) -> {
-			log.info("Save a couple of categories");
-			repository.save(new Category("Sci-Fi"));
-			repository.save(new Category("Comic"));
-			repository.save(new Category("Fiction"));
-		
-			log.info("fetch all books");
-			for(Category category : repository.findAll()) {
-				log.info(category.toString());
-			}
-		};
-	}
+	
 	
 	@Bean
 	public CommandLineRunner bookdemo(BookRepository repository, CategoryRepository categoryrepository) {
@@ -41,7 +28,7 @@ public class BookstoreApplication {
 			log.info("Save a couple of books");
 			Category category1 = new Category("Fantasy");
 			categoryrepository.save(category1);
-			Category category2 = new Category("Comic");
+			Category category2 = new Category("Classics");
 			categoryrepository.save(category2);
 			Category category3 = new Category("Fiction");
 			categoryrepository.save(category3);
