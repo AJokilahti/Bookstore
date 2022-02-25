@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import hh.swd20.Bookstore.domain.Book;
 import hh.swd20.Bookstore.domain.BookRepository;
 
+
 @Controller
 public class BookstoreController {
 
@@ -55,4 +56,6 @@ private BookRepository repository;
 		model.addAttribute("book", repository.findById(bookId));
 		return "editbook";
 	}
+	
+	
 }
